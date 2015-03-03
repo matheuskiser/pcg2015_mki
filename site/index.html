@@ -1,39 +1,125 @@
 <!doctype html>
 <html>
-	<head>
-		<title>Matheus Konzen Iser - About Me</title>
-		<link href="style.css" type="text/css" rel="stylesheet">
-		<script src="main.js"></script>
-	</head>
-	<body>
-		<h1>Matheus Konzen Iser</h1>
+<head>
+    <title>Matheus Konzen Iser - About Me</title>
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <script src="main.js"></script>
+</head>
+<body>
+<h1>Matheus Konzen Iser</h1>
 
-		<table>
-			<tr>
-				<th>Name</th>
-				<th>Phone</th>
-			</th>
-			<tr>
-				<td>Matheus Konzen Iser</td>
-				<td>503-333-4657</td>
-			</tr>
-			<tr>
-				<td>Kevin</td>
-				<td>503-888-6879</td>
-			</tr>
-		</table>
+<form method="post">
+    <fieldset>
+        <legend>Login Information</legend>
+        <label>
+            Username:
+            <input placeholder="Username" name="username">
+        </label>
+        <br/>
+        <label>
+            Password:
+            <input type="password" placeholder="Password" name="password">
+        </label>
+        <br/>
 
-		<h2>Pages:</h2>
-		<ul>
-			<li>
-				<a href="index.html">Home/Overview</a>
-			</li>
-			<li>
-				<a href="resume_cv.html">Resume/CV</a>
-			</li>
-			<li>
-				<a href="bio.html">Personal Biography</a>
-			</li>
-		</ul>
-	</body>
+        <input type="Submit" value="Login">
+    </fieldset>
+</form>
+
+<br/>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Phone</th>
+    </tr>
+    <tr>
+        <td>Matheus Konzen Iser</td>
+        <td>503-333-4657</td>
+    </tr>
+    <tr>
+        <td>Kevin</td>
+        <td>503-888-6879</td>
+    </tr>
+</table>
+
+<h2>Pages:</h2>
+<ul>
+    <li>
+        <a href="index.html">Home/Overview</a>
+    </li>
+    <li>
+        <a href="resume_cv.html">Resume/CV</a>
+    </li>
+    <li>
+        <a href="bio.html">Personal Biography</a>
+    </li>
+</ul>
+
+<br/>
+*************** FORM Practice ***************
+<br/>
+
+<form action="">
+    <fieldset>
+        <legend>Your Details:</legend>
+        <label class="login_form">Name:</label>
+        <input id="login_name" name="name">
+
+        <br/>
+        <label class="login_form">Email:</label>
+        <input id="login_email" name="email">
+    </fieldset>
+
+    <br/><br/>
+
+    <fieldset>
+        <legend>Your Review:</legend>
+
+        How did you hear about us?
+        <select>
+            <option id="google" name="option">Google</option>
+            <option id="yahoo" name="option">Yahoo</option>
+            <option id="altavista" name="option">Altavista</option>
+        </select>
+
+        <br/><br/>
+
+        Would you visit again?
+        <br/>
+        <label>
+            <input type="radio" name="rating" value="yes">Yes
+        </label>
+        <label>
+            <input type="radio" name="rating" value="no">No
+        </label>
+        <label>
+            <input type="radio" name="rating" value="maybe">Maybe
+        </label>
+
+        <br/><br/>
+
+        Comments:
+        <br/>
+        <textarea name="comments" id="comment_textarea"></textarea>
+
+        <br/><br/>
+
+        <label>
+            <input type="checkbox" name="checkbox" checked>Sign me up for email updates
+        </label>
+
+        <br/>
+
+        <input type="submit" id="submit_button" name="submit" value="Submit review">
+
+    </fieldset>
+</form>
+
+<br><br>
+Image Time!
+<br>
+<img src="http://assets3.parliament.uk/iv/main-large//ImageVault/Images/id_7382/scope_0/ImageVaultHandler.aspx.jpg">
+
+</body>
 </html>

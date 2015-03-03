@@ -1,12 +1,29 @@
 body {
-	background-color: Blue;
-	color: Yellow;
+	background-color: #CCC;
+	color: Black;
 	font-family: sans-serif;
 }
+
 h1 {
 	font-size: 72px;
 	color: white;
 }
+
 li {
 	display: inline-block;
+}
+
+th {
+	text-align: left;
+}
+
+.login_form {
+	display: inline-block;
+	text-align: right;
+	width: 50px;
+}
+
+#comment_textarea {
+	min-width: 200px;
+	min-height:100px;
 }
