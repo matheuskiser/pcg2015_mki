@@ -1,0 +1,12 @@
+body {
+	background-color: Blue;
+	color: Yellow;
+	font-family: sans-serif;
+}
+h1 {
+	font-size: 72px;
+	color: white;
+}
+li {
+	display: inline-block;
+}
