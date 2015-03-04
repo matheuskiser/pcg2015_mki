@@ -2,6 +2,8 @@ body {
 	background-color: #CCC;
 	color: Black;
 	font-family: sans-serif;
+    padding-top: 180px;
+    margin: 0;
 }
 
 h1 {
@@ -19,11 +21,42 @@ th {
 
 .login_form {
 	display: inline-block;
-	text-align: right;
+	text-align: left;
+	width: 80px;
+}
+
+.details_form {
+	display: inline-block;
+	text-align: left;
 	width: 50px;
 }
 
 #comment_textarea {
 	min-width: 200px;
 	min-height:100px;
+}
+
+#submit_button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+#review_fieldset {
+    position:relative;
+}
+
+#top_header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #6dcc6e;
+}
+
+.nav_link {
+    margin: 0 10px;
+}
+
+.selected {
+    background-color: #FFF;
 }
