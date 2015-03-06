@@ -60,3 +60,29 @@ th {
 .selected {
     background-color: #FFF;
 }
+
+/*CART PAGE*/
+#cart-table {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFF;
+    border-collapse: collapse;
+}
+
+#cart-table th {
+    background-color: #aacc00;
+}
+
+#cart-table, td, th {
+    border: solid 1px #6dcc6e;
+    padding: 5px;
+}
+
+#cart-table a {
+    color: #6dcc6e;
+}
+
+#cart-table input {
+    height: 100%;
+}
