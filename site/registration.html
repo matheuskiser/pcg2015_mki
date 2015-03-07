@@ -1,0 +1,139 @@
+<!--name-->
+<!--email-->
+<!--birthdate-->
+<!--age, at least 18 to accept-->
+<!doctype html>
+<html>
+<head>
+    <title>Matheus Konzen Iser - About Me</title>
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <script src="main.js"></script>
+</head>
+<body>
+
+<div id="top_header">
+    <h1>Matheus Konzen Iser</h1>
+</div>
+
+<form id="registration-form" method="GET">
+    <fieldset>
+        <legend>Registration Form:</legend>
+
+        <label class="reg-form">Name:</label>
+        <input id="form-name" type="text" name="name">
+        <span id="val-name-txt" style="color: red;"></span>
+
+        <br><br>
+
+        <label class="reg-form">Email:</label>
+        <input id="form-email" type="email" name="email">
+        <span id="val-email-txt" style="color: red;"></span>
+
+        <br><br>
+
+        <label class="reg-form">Password:</label>
+        <input id="form-password" type="password" name="password">
+        <span id="val-password-txt" style="color: red;"></span>
+
+        <br><br>
+
+        <label class="reg-form">Birthdate:</label>
+        <input id="form-birthdate" type="date" name="Birthdate">
+        <span id="val-birthdate-txt" style="color: red;"></span>
+
+        <br><br>
+
+        <input type="submit" id="submit-form" value="Submit" onclick="submitForm()">
+    </fieldset>
+</form>
+
+<script>
+
+    var regForm = document.getElementById("registration-form");
+
+    var submitForm = function () {
+        checkName();
+        checkEmail();
+        checkBirthDate();
+        checkPassword();
+    };
+
+    var checkPassword = function () {
+        var password = document.getElementById("form-password").value;
+        var passwordAlert = document.getElementById("val-password-txt");
+
+        if (password.length < 8) {
+            passwordAlert.innerHTML = "Password must be at least 8 letters or numbers."
+        } else {
+            passwordAlert.innerHTML = "Password Correct"
+        }
+    };
+
+    var checkName = function () {
+        var name = document.getElementById("form-name").value;
+        var nameAlert = document.getElementById("val-name-txt");
+
+        if (name == "") {
+            nameAlert.innerHTML = "Please enter a name"
+        } else {
+            nameAlert.innerHTML = "Name Correct"
+        }
+    };
+
+    var checkEmail = function () {
+        var email = document.getElementById("form-email").value;
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        var emailAlert = document.getElementById("val-email-txt");
+        if (re.test(email)) {
+            emailAlert.innerHTML = "Email Correct";
+        } else {
+            emailAlert.innerHTML = "Wrong Email";
+        }
+    };
+
+    var checkBirthDate = function () {
+        var birthdate = document.getElementById("form-birthdate").value;
+        var birthdateAlert = document.getElementById("val-birthdate-txt");
+        var dob = new Date(birthdate);
+        var now = new Date();
+        var ageDiff = new Date()
+        var nowMS = now.getTime();
+        var dobMS = dob.getTime();
+        var iDiff= nowMS - dobMS;
+        ageDiff.setTime(iDiff);
+        var age = parseInt(ageDiff.getFullYear()) - 1970;
+
+        var pattern = /^([0-9]{4})-([0-9]{2})-([0-9]{2})$/;
+        if (pattern.test(birthdate)) {
+            console.log(age)
+            checkAge(age);
+        } else {
+            birthdateAlert.innerHTML = "Incorrect Date";
+        }
+    };
+
+    var checkAge = function (age) {
+        var ageAlert = document.getElementById("val-birthdate-txt");
+
+        if (age < 18) {
+            ageAlert.innerHTML = "User is too young";
+        } else if (age > 100) {
+            ageAlert.innerHTML = "User is too old";
+        } else if (isNaN(age)){
+            ageAlert.innerHTML = "Enter an age";
+        } else {
+            ageAlert.innerHTML = "Age Correct, you are " + age + ".";
+        }
+    };
+
+    // Handles submission of form
+    regForm.addEventListener("submit", function(event){
+        event.preventDefault();
+        validateForm();
+    });
+
+</script>
+
+</body>
+</html>

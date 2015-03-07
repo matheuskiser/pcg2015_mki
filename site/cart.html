@@ -132,8 +132,6 @@
             var price = parseFloat(line.getElementsByClassName("price-each")[0].innerHTML);
             var subtotalElement = line.getElementsByClassName("subtotal")[0];
 
-            console.log(price);
-
             var subTotal = quantity * price;
             subtotalElement.innerHTML = subTotal;
             total += subTotal;
