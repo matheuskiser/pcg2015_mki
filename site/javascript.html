@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+    <title>JavaScript</title>
+</head>
+<body>
+<script>
+
+    var coins = {
+        1: 6,
+        5: 4,
+        10: 2,
+        25: 1
+    };
+
+    function total(coins) {
+        var total = 0;
+
+        for (var key in coins) {
+            total += (key * coins[key]);
+        };
+
+        return total + " cents";
+    }
+
+    document.write("<h1>" + total(coins) + "</h1>");
+
+
+    var coins = [
+        {"Name":"pennies",
+        "Value":1,
+        "Qty":6},
+        {"Name":"nickels",
+        "Value":5,
+        "Qty":4},
+        {"Name":"dimes",
+        "Value":10,
+        "Qty":2},
+        {"Name":"quarters",
+        "Value":25,
+        "Qty":1}
+    ];
+
+    function getDollars(coins) {
+        var total = 0;
+
+        for (var i = 0; i < coins.length; i++) {
+            document.write(coins[i].Qty + " " + coins[i].Name + "<br>");
+            total += (coins[i].Qty * coins[i].Value);
+        }
+
+        return "$" + total/100;
+    }
+
+    document.write("<h1>" + getDollars(coins) + "</h1>");
+
+
+</script>
+</body>
+</html>
