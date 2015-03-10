@@ -25,7 +25,7 @@
     </tr>
     <tr class="cart-line">
         <td class="line-number">1</td>
-        <td class="quantity"><input type="number" value="11"></td>
+        <td class="quantity"><input type="number" value="1"></td>
         <td class="product-code">WIDGET1234</td>
         <td class="product-description">T-Shirt: Color: Black; Size: XXL;</td>
         <td class="price-each">13</td>
@@ -34,7 +34,7 @@
     </tr>
     <tr class="cart-line">
         <td class="line-number">2</td>
-        <td class="quantity"><input type="number" value="22"></td>
+        <td class="quantity"><input type="number" value="1"></td>
         <td class="product-code">WIDGET1234</td>
         <td class="product-description">T-Shirt: Color: Black; Size: XXL;</td>
         <td class="price-each">13</td>
@@ -58,14 +58,13 @@
     });
 
     var line_number = 3;
-    var row_number = 3;
 
     var addLine = function () {
         // Find a <table> element with id="myTable":
         var table = document.getElementById("cart-table");
 
         // Create an empty <tr> element and add it to the 1st position of the table:
-        var row = table.insertRow(row_number++);
+        var row = table.insertRow(table.rows.length-1);
         row.className="cart-line";
 
         // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
@@ -74,7 +73,7 @@
         cell1.className="line-number";
 
         var cell2 = row.insertCell(1);
-        cell2.innerHTML = "<input type='number' value='11'>";
+        cell2.innerHTML = "<input type='number' value='1'>";
         cell2.className="quantity";
 
         var cell3 = row.insertCell(2);
