@@ -6,9 +6,24 @@
 </head>
 <body>
 <script>
+    function createIndexItem(letter) {
+        var hash = letter.toLowerCase();
+        var display = letter.toUpperCase();
+        var anchorElement = document.createElement("a");
+        anchorElement.setAttribute("href", "#" + hash);
+        var text = document.createTextNode(display);
+        anchorElement.appendChild(text);
+        document.body.appendChild(anchorElement);
+    }
+    a = "a".charCodeAt(0);
+    z = "z".charCodeAt(0);
+    for (var c = a; c <= z; c++) {
+        var letter = String.fromCharCode(c);
+        createIndexItem(letter);
+    }
     tenants = [
         {
-            "name": "Kevin Long",
+            "name": "Kevin Lang",
             "suite": 111
         },
         {
@@ -43,19 +58,63 @@
     var directory = {};
     for (var i in tenants) {
         var t = tenants[i];
-        var first_letter = t["name"][0];
+        var first_letter = t["name"][0].toUpperCase();
+
+        // Sort by last name
+        var name_parts = t["name"].split(" ");
+        // If name has 2 names or more
+        if (name_parts.length >= 2) {
+            var last_name = name_parts[1];
+            first_letter = last_name[0].toUpperCase();
+            t.sortname = name_parts[1] + name_parts[0];
+        } else {
+            t.sortname = name_parts[0];
+        }
+
         if (!directory.hasOwnProperty(first_letter)) {
             directory[first_letter] = [];
         }
         directory[first_letter].push(t);
-
     }
-    for (letter in directory) {
+
+    function comp(a, b) {
+        if (a.sortname > b.sortname) {
+            return 1;
+        } else if (a.sortname < b.sortname) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
+
+    // Sorts by value "name" using comp
+    for (var letter in directory) {
         var d = directory[letter];
-        document.write("===" + letter + "===" + "<br>");
+        d.sort(comp);
+    }
+
+    // Sorts keys
+    var keys = Object.keys(directory);
+    keys.sort();
+
+    for (var i in keys) {
+        var letter = keys[i];
+        var d = directory[letter];
+
+        var header = document.createElement("h1");
+        header.setAttribute("id", letter.toLowerCase());
+        var text = document.createTextNode(letter);
+        header.appendChild(text);
+        document.body.appendChild(header);
         for (i in d) {
             var t = d[i];
-            document.write(" " + t["name"] + " " + t["suite"] + "<br>");
+
+            var ulitem = document.createElement("ul");
+            var liitem = document.createElement("li");
+            var textli = document.createTextNode(t["name"] + " " + t["suite"]);
+            liitem.appendChild(textli);
+            ulitem.appendChild(liitem);
+            document.body.appendChild(ulitem);
         }
 
     }
